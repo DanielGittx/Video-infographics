@@ -1,50 +1,74 @@
 {
-  "title": "SB Admin",
-  "name": "startbootstrap-sb-admin",
-  "version": "4.0.0-beta",
-  "description": "A one page app landing page HTML theme for Bootstrap.",
-  "keywords": [
-    "css",
-    "sass",
-    "html",
-    "responsive",
-    "theme",
-    "template",
-    "admin",
-    "app"
-  ],
-  "homepage": "https://startbootstrap.com/template-overviews/sb-admin",
-  "bugs": {
-    "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin/issues",
-    "email": "feedback@startbootstrap.com"
-  },
-  "license": "MIT",
-  "author": "Start Bootstrap",
-  "contributors": [
-    "David Miller (http://davidmiller.io/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-sb-admin.git"
-  },
-  "dependencies": {
-    "bootstrap": "^4.0.0-beta",
-    "chart.js": "2.6.0",
-    "datatables.net-bs4": "1.10.15",
-    "font-awesome": "4.7.0",
-    "jquery": "^3.2.1",
-    "jquery.easing": "^1.4.1",
-    "popper.js": "1.12.3"
-  },
-  "devDependencies": {
-    "browser-sync": "2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "3.7.0",
-    "gulp-header": "1.8.9",
-    "gulp-html-beautify": "^1.0.1",
-    "gulp-pug": "^3.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "3.0.0"
-  }
+	"name": "jquery-ui",
+	"title": "jQuery UI",
+	"description": "A curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.",
+	"version": "1.12.1",
+	"homepage": "http://jqueryui.com",
+	"author": {
+		"name": "jQuery Foundation and other contributors",
+		"url": "https://github.com/jquery/jquery-ui/blob/1.12.1/AUTHORS.txt"
+	},
+	"main": "ui/widget.js",
+	"maintainers": [
+		{
+			"name": "Scott González",
+			"email": "scott.gonzalez@gmail.com",
+			"url": "http://scottgonzalez.com"
+		},
+		{
+			"name": "Jörn Zaefferer",
+			"email": "joern.zaefferer@gmail.com",
+			"url": "http://bassistance.de"
+		},
+		{
+			"name": "Mike Sherov",
+			"email": "mike.sherov@gmail.com",
+			"url": "http://mike.sherov.com"
+		},
+		{
+			"name": "TJ VanToll",
+			"email": "tj.vantoll@gmail.com",
+			"url": "http://tjvantoll.com"
+		},
+		{
+			"name": "Felix Nagel",
+			"email": "info@felixnagel.com",
+			"url": "http://www.felixnagel.com"
+		},
+		{
+			"name": "Alex Schmitz",
+			"email": "arschmitz@gmail.com",
+			"url": "https://github.com/arschmitz"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/jquery/jquery-ui.git"
+	},
+	"bugs": "https://bugs.jqueryui.com/",
+	"license": "MIT",
+	"scripts": {
+		"test": "grunt"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"commitplease": "2.3.0",
+		"grunt": "0.4.5",
+		"grunt-bowercopy": "1.2.4",
+		"grunt-cli": "0.1.13",
+		"grunt-compare-size": "0.4.0",
+		"grunt-contrib-concat": "0.5.1",
+		"grunt-contrib-csslint": "0.5.0",
+		"grunt-contrib-jshint": "0.12.0",
+		"grunt-contrib-qunit": "1.0.1",
+		"grunt-contrib-requirejs": "0.4.4",
+		"grunt-contrib-uglify": "0.11.1",
+		"grunt-git-authors": "3.1.0",
+		"grunt-html": "6.0.0",
+		"grunt-jscs": "2.1.0",
+		"load-grunt-tasks": "3.4.0",
+		"rimraf": "2.5.1",
+		"testswarm": "1.1.0"
+	},
+	"keywords": []
 }
