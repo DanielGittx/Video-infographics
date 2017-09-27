@@ -16,6 +16,26 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="interact.min.js"></script>
+  
+  <style>
+
+
+.live-demo {               //original, active workspace
+  display: inline-block;
+  vertical-align: top;
+  height: 842px;        //A4 Page dimensions - h-842, w- 595
+  width:  595px;
+  background-color: #e8e9e8;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+
+  </style>
+  
+ 
+  
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -103,7 +123,15 @@
               <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
               <ul class="sidenav-third-level collapse" id="collapseMulti2">
                 <li>
-                  <a href="#">Third Level Item</a>
+                  <a href="#">Third Level Item1</a>
+
+		
+			<!--		<div id="live-demo" ondrop="drop(event)" ondragover="allowDrop(event)">  -->
+					  <img id = "grid-snap" src="monkey.jpg" draggable="true" ondragstart="drag(event)" >
+					 
+		     <!--       </div>   -->
+		
+		
                 </li>
                 <li>
                   <a href="#">Third Level Item</a>
@@ -231,6 +259,120 @@
   <div class="content-wrapper">
         <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
+	
+	work space here...
+	
+
+	
+	 <!-- <div align = "center" id="app">  -->
+        <div  class="live-demo" ondrop="drop(event)" ondragover="allowDrop(event)" >
+           <div id="grid-snap">
+		   </div>
+         </div>
+		 
+		 
+    <!--  </div> -->
+	 
+	
+	<script> 
+	
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+	
+	var element = document.getElementById("grid-snap"),
+    x = 0, y = 0;
+
+interact(element) 
+  .draggable({
+    snap: {
+      targets: [
+        interact.createSnapGrid({ x: 10, y: 10 })
+      ],
+      range: Infinity,
+      relativePoints: [ { x: 0, y: 0 } ]
+    },
+    inertia: true,
+    restrict: {
+      restriction: element.parentNode,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+      endOnly: true
+    }
+  })
+  .on('dragmove', function (event) {
+    x += event.dx;
+    y += event.dy;
+
+    event.target.style.webkitTransform =
+    event.target.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+  });
+  
+  
+  
+  interact(element)
+  .draggable({
+    onmove: window.dragMoveListener
+  })
+  .resizable({
+    preserveAspectRatio: true,
+    edges: { left: true, right: true, bottom: true, top: true }
+  })
+  .on('resizemove', function (event) {
+    var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0),
+        y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+    // update the element's style
+    target.style.width  = event.rect.width + 'px';
+    target.style.height = event.rect.height + 'px';
+
+    // translate when resizing from top or left edges
+    x += event.deltaRect.left;
+    y += event.deltaRect.top;
+
+    target.style.webkitTransform = target.style.transform =
+        'translate(' + x + 'px,' + y + 'px)';
+
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+    target.textContent = event.rect.width + '×' + event.rect.height;
+  });
+
+  function dragMoveListener (event) {
+    var target = event.target,
+        // keep the dragged position in the data-x/data-y attributes
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    // translate the element
+    target.style.webkitTransform =
+    target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)';
+
+    // update the posiion attributes
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+  }
+	
+
+	
+	</script>
+	
+	
+	
+	
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
