@@ -295,7 +295,7 @@ function drop(ev) {
     x = 0, y = 0;
 
 interact(element) 
-  .draggable({
+  .draggable({                                      // make it draggable
     snap: {
       targets: [
         interact.createSnapGrid({ x: 10, y: 10 })
@@ -310,7 +310,8 @@ interact(element)
       endOnly: true
     }
   })
-  .on('dragmove', function (event) {
+
+    .on('dragmove', function (event) {               // Drag and move function
     x += event.dx;
     y += event.dy;
 
@@ -319,16 +320,13 @@ interact(element)
         'translate(' + x + 'px, ' + y + 'px)';
   });
   
-  
-  
-  interact(element)
-  .draggable({
-    onmove: window.dragMoveListener
-  })
+  interact(element)                                 // Resize function
   .resizable({
     preserveAspectRatio: true,
     edges: { left: true, right: true, bottom: true, top: true }
   })
+  
+ /* 
   .on('resizemove', function (event) {
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0),
@@ -366,7 +364,7 @@ interact(element)
     target.setAttribute('data-y', y);
   }
 	
-
+*/
 	
 	</script>
 	
