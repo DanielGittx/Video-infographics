@@ -7,11 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>test</title>
+  <title>Inforgraphics</title>
   <script src="jquery.min.js"></script>
   <script src="jquery-ui.min.js"></script>
-  <script src="interact.min.js"></script>
-   <script src="interact.js"></script>
 
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,56 +21,29 @@
   <link href="css/sb-admin.css" rel="stylesheet">
 
 <style>
-
- div#droppable 
-	{              
-			  display: inline-block;
-			  vertical-align: top;
-			  width: 800px;
-			  height: 200px;
-			  background-color: #e8e9e8;
-			  margin-left: 200px;
-			  margin-top: 100px;
+  div#droppable {
+		width: 250px;
+		height: 200px;
+		background: #eee;
+		float: right;
+        margin-top:-100px;
 	}
 
-	.draggable img{
-	   	width: 20px;
-		height:20px;
-		background: url(fort-collins-soccer-league-at-edge-sports.png) 0 0;
+	.draggable img {
+		width: 40px;
+		height: 40px;
 	}
 	.ui-draggable-dragging {
 		width: 40px;
 		height: 40px;
 	}
 
-	
-.live-demo {               //original, see
-  display: inline-block;
-  vertical-align: top;
-  width: 400px;
-  height: 400px;
-  background-color: #e8e9e8;
-    margin-left: -200px;
-  margin-top: 100px;
-}
-
-
-#grid-snap {
-  width: 40%;
-  background-color: #29e;
-  color: #fff;
-  font-size: 1.2em;
-  border-radius: 4px;
-  padding: 2%;
-  margin: 5%;
-}
-	
   </style>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="navbar.html.html">welcome to bootstrap</a>
+    <a class="navbar-brand" href="navbar.html.html">Welcome to infograhics</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -104,7 +75,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Corporate">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Main menu 1</span>
+            <span class="nav-link-text">Corporate</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
             <li>
@@ -118,7 +89,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Industry">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Main menu 1</span>
+            <span class="nav-link-text">Industry</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
@@ -138,7 +109,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Marketing">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Main menu 1</span>
+            <span class="nav-link-text">Marketing</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseMulti">
             <li>
@@ -309,36 +280,24 @@
 		 
 		 -->
 		 
-		 
 		 <h4>This is a draggable image page</h4>
-
+		
+		<div class="draggable">
+			<img src="fort-collins-soccer-league-at-edge-sports.png" alt="">
+		</div>
+		
+		
 		<div id="droppable">
 			<li class="placeholder">Image drops for as many times as possible</li>			
-		</div>  
-		
-		<div id="grid-snap">
-				Dragging is constrained to the corners of a grid
 		</div>
-		<!--
-				<div class="draggable">
-			      <img src="fort-collins-soccer-league-at-edge-sports.png" alt="">
-		        </div>
-				-->
-		 <!--
-				<div align = "center" id="app">
-				  <div  class="live-demo">
-					<div id="draggable"></div>
-				  </div>
-				</div>
-				-->
+		 
 	
 	<script> 
-
+		
 $(function() {
-    $(".draggable").draggable({ 
+    $(".draggable img").draggable({ 
         revert: "invalid",
-        helper: "clone", 
-		appendTo: ".content-wrapper"
+        helper: "clone" 
     });   
     $("#droppable").droppable({
         activeClass: "ui-state-default",
@@ -350,37 +309,26 @@ $(function() {
 			
         }
     }); 
-	
 });
-	  
-	var element = document.getElementById('grid-snap'),
-    x = 0, y = 0;
 
-interact(element)
-  .draggable({
-    snap: {
-      targets: [
-        interact.createSnapGrid({ x: 10, y: 10 })
-      ],
-      range: Infinity,
-      relativePoints: [ { x: 0, y: 0 } ]
-    },
-    inertia: true,
-    restrict: {
-      restriction: element.parentNode,
-      elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
-      endOnly: true
-    }
-  })
-  .on('dragmove', function (event) {
-    x += event.dx;
-    y += event.dy;
 
-    event.target.style.webkitTransform =
-    event.target.style.transform =
-        'translate(' + x + 'px, ' + y + 'px)';
-  });  
-	
+/*
+$(function() {
+        $(".draggable img").draggable({
+            helper: function (e,ui) {
+                return $(this).clone().appendTo('div#droppable').css('zIndex',5).show();
+            } 
+        });
+        $("#droppable").droppable({
+            accept: '.draggable img',
+            drop: function( event, ui ) { //on drop
+            ui.draggable.css({ // set absolute position of dropped object
+                top: ui.position.top, left: ui.position.left
+            }).appendTo('#droppable'); //append to container
+});
+
+*/
+
 
 </script>
 
